@@ -1,5 +1,5 @@
 CREATE TABLE `channel` (
-	`id` text PRIMARY KEY NOT NULL,
+	`id` integer PRIMARY KEY NOT NULL,
 	`slug` text(256) NOT NULL,
 	`description` text(512) NOT NULL,
 	`channelType` text(256) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE `channel` (
 );
 --> statement-breakpoint
 CREATE TABLE `generatedConversation` (
-	`id` text PRIMARY KEY NOT NULL,
+	`id` integer PRIMARY KEY NOT NULL,
 	`channelId` text NOT NULL,
 	`summary` text(10000),
 	`createdAt` integer DEFAULT (strftime('%s', 'now')) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `generatedConversation` (
 );
 --> statement-breakpoint
 CREATE TABLE `generatedConversationMessage` (
-	`id` text PRIMARY KEY NOT NULL,
+	`id` integer PRIMARY KEY NOT NULL,
 	`messageId` text NOT NULL,
 	`conversationId` text NOT NULL,
 	`createdAt` integer DEFAULT (strftime('%s', 'now')) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE `generatedConversationMessage` (
 );
 --> statement-breakpoint
 CREATE TABLE `message` (
-	`id` text PRIMARY KEY NOT NULL,
+	`id` integer PRIMARY KEY NOT NULL,
 	`channelId` text NOT NULL,
 	`userId` text NOT NULL,
 	`message` text(60000) NOT NULL,
